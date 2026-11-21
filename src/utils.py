@@ -1,4 +1,6 @@
 from pathlib import Path
+import fitz        # pip install pymupdf
+import pdfplumber  # pip install pdfplumber
 
 
 class DataExplorer:
@@ -22,3 +24,24 @@ class DataExplorer:
         """Zwraca listę plików w podanym folderze (lub w głównym data_path, jeśli nie podano argumentu)."""
         target = self._validate_dir(folder_path) if folder_path is not None else self.data_path
         return [item for item in target.iterdir() if item.is_file()]
+
+    @staticmethod
+    def _check_pdf_path(pdf_path: str | Path) -> Path:
+        path = Path(pdf_path)
+        if not path.exists():
+            raise FileNotFoundError(f"Plik PDF nie istnieje: {path}")
+        if not path.is_file():
+            raise IsADirectoryError(f"Podana ścieżka nie jest plikiem: {path}")
+        return path
+
+    def read_pdf_pymupdf(self, pdf_path: str | Path) -> str:
+        """Najszybsza opcja — wyciąga czysty tekst przez PyMuPDF."""
+        path = self._check_pdf_path(pdf_path)
+        with fitz.open(path) as doc:
+            return "\n".join(page.get_text("text") for page in doc)
+
+    def read_pdf_plumber(self, pdf_path: str | Path) -> str:
+        """Najlepsza opcja do dokumentów z tabelami i kolumnami."""
+        path = self._check_pdf_path(pdf_path)
+        with pdfplumber.open(path) as pdf:
+            return "\n".join(page.extract_text() or "" for page in pdf.pages)
