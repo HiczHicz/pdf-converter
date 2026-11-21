@@ -1,11 +1,144 @@
+# import io
+# from pathlib import Path
+# import fitz          # pip install pymupdf
+# import pdfplumber    # pip install pdfplumber
+# #import pytesseract   # pip install pytesseract (wymaga też Tesseract-OCR w systemie)
+# from PIL import Image  # pip install pillow
+
+
+# class DataExplorer:
+#     def __init__(self, data_path: str | Path = "./hacknation-2026-main/dane") -> None:
+#         self.data_path = self._validate_dir(data_path)
+
+#     @staticmethod
+#     def _validate_dir(path: str | Path) -> Path:
+#         p = Path(path)
+#         if not p.exists():
+#             raise FileNotFoundError(f"Ścieżka nie istnieje: {p}")
+#         if not p.is_dir():
+#             raise NotADirectoryError(f"Podana ścieżka nie jest katalogiem: {p}")
+#         return p
+
+#     def get_all_dirs(self) -> list[Path]:
+#         """Zwraca listę ścieżek do wszystkich folderów i podfolderów wewnątrz self.data_path."""
+#         return [item for item in self.data_path.rglob("*") if item.is_dir()]
+
+#     def get_files_in_dir(self, folder_path: str | Path | None = None) -> list[Path]:
+#         """Zwraca listę plików w podanym folderze (lub w głównym data_path, jeśli nie podano argumentu)."""
+#         target = self._validate_dir(folder_path) if folder_path is not None else self.data_path
+#         return [item for item in target.iterdir() if item.is_file()]
+
+#     @staticmethod
+#     def _check_pdf_path(pdf_path: str | Path) -> Path:
+#         path = Path(pdf_path)
+#         if not path.exists():
+#             raise FileNotFoundError(f"Plik PDF nie istnieje: {path}")
+#         if not path.is_file():
+#             raise IsADirectoryError(f"Podana ścieżka nie jest plikiem: {path}")
+#         return path
+
+#     @staticmethod
+#     def group_files_by_extension(
+#         file_paths: list[str | Path],
+#         allowed_extensions: list[str] | None = None,
+#     ) -> dict[str, list[Path]]:
+#         """
+#         Grupuje ścieżki używając str(p).rsplit(".", 1).
+#         Dozwolone rozszerzenia (zaczynając od .json) trafiają do swoich kluczy, reszta do 'unknown'.
+#         """
+#         if allowed_extensions is None:
+#             allowed_extensions = [".json", ".pdf", ".csv", ".txt"]
+
+#         allowed = {
+#             ext.lower() if ext.startswith(".") else f".{ext.lower()}"
+#             for ext in allowed_extensions
+#         }
+
+#         grouped: dict[str, list[Path]] = {ext: [] for ext in allowed}
+#         grouped["unknown"] = []
+
+#         for p in file_paths:
+#             path_obj = Path(p)
+#             parts = str(path_obj).rsplit(".", 1)
+
+#             if len(parts) == 2:
+#                 ext = f".{parts[1].lower()}"
+#             else:
+#                 ext = ""
+
+#             if ext in allowed:
+#                 grouped[ext].append(path_obj)
+#             else:
+#                 grouped["unknown"].append(path_obj)
+
+#         return grouped
+
+#     @staticmethod
+#     def filter_by_extension(
+#         grouped_files: dict[str, list[Path]],
+#         target_extension: str,
+#     ) -> list[Path]:
+#         """Zwraca listę plików dla wskazanego rozszerzenia (lub 'unknown') z wyniku group_files_by_extension."""
+#         key = target_extension.lower()
+#         if key != "unknown" and not key.startswith("."):
+#             key = f".{key}"
+#         return grouped_files.get(key, [])
+
+#     def read_pdf_pymupdf(self, pdf_path: str | Path) -> str:
+#         """Najszybsza opcja — wyciąga czysty tekst przez PyMuPDF."""
+#         path = self._check_pdf_path(pdf_path)
+#         with fitz.open(path) as doc:
+#             return "\n".join(page.get_text("text") for page in doc)
+
+#     def read_pdf_plumber(self, pdf_path: str | Path) -> str:
+#         """Najlepsza opcja do dokumentów z tabelami i kolumnami."""
+#         path = self._check_pdf_path(pdf_path)
+#         with pdfplumber.open(path) as pdf:
+#             return "\n".join(page.extract_text() or "" for page in pdf.pages)
+
+#     def read_pdf_ocr(self, pdf_path: str | Path, lang: str = "pol", dpi: int = 200) -> str:
+#         """Odczytuje zeskanowany PDF (obraz) za pomocą OCR (Tesseract)."""
+#         path = self._check_pdf_path(pdf_path)
+#         text_pages = []
+#         with fitz.open(path) as doc:
+#             for page in doc:
+#                 pix = page.get_pixmap(dpi=dpi)
+#                 img = Image.open(io.BytesIO(pix.tobytes("png")))
+#                 text_pages.append(pytesseract.image_to_string(img, lang=lang))
+#         return "\n".join(text_pages)
+
+#     def read_pdf(
+#         self,
+#         pdf_path: str | Path,
+#         min_text_length: int = 50,
+#         ocr_lang: str = "pol",
+#     ) -> str:
+#         """
+#         Uniwersalny odczyt PDF:
+#         1. Próbuje wczytać tekst przez pdfplumber.
+#         2. Jeśli wyciągnięty tekst (bez spacji) ma mniej niż `min_text_length` znaków
+#            (czyli PDF jest skanem), automatycznie uruchamia OCR.
+#         """
+#         text = self.read_pdf_plumber(pdf_path)
+#         clean_len = len("".join(text.split()))
+
+#         if clean_len < min_text_length:
+#             return self.read_pdf_ocr(pdf_path, lang=ocr_lang)
+
+#         return text
+
+
+
 from pathlib import Path
-import fitz        # pip install pymupdf
-import pdfplumber  # pip install pdfplumber
+import fitz          # pip install pymupdf
+import pdfplumber    # pip install pdfplumber
+from rapidocr_onnxruntime import RapidOCR  # pip install rapidocr-onnxruntime #pip install RapidOCR
 
 
 class DataExplorer:
     def __init__(self, data_path: str | Path = "./hacknation-2026-main/dane") -> None:
         self.data_path = self._validate_dir(data_path)
+        self._ocr_engine = RapidOCR()  # lekki silnik OCR ładowany raz przy starcie
 
     @staticmethod
     def _validate_dir(path: str | Path) -> Path:
@@ -92,3 +225,32 @@ class DataExplorer:
         path = self._check_pdf_path(pdf_path)
         with pdfplumber.open(path) as pdf:
             return "\n".join(page.extract_text() or "" for page in pdf.pages)
+
+    def read_pdf_ocr(self, pdf_path: str | Path, dpi: int = 200) -> str:
+        """Odczytuje zeskanowany PDF (obraz) za pomocą lekkiego RapidOCR (bez zewnętrznych instalacji)."""
+        path = self._check_pdf_path(pdf_path)
+        text_pages = []
+        with fitz.open(path) as doc:
+            for page in doc:
+                pix = page.get_pixmap(dpi=dpi)
+                result, _ = self._ocr_engine(pix.tobytes("png"))
+                if result:
+                    # result to lista elementów: [współrzędne_ramki, tekst, pewność]
+                    page_text = "\n".join(line[1] for line in result)
+                    text_pages.append(page_text)
+        return "\n".join(text_pages)
+
+    def read_pdf(self, pdf_path: str | Path, min_text_length: int = 50) -> str:
+        """
+        Uniwersalny odczyt PDF:
+        1. Próbuje wczytać tekst przez pdfplumber.
+        2. Jeśli wyciągnięty tekst (bez spacji) ma mniej niż `min_text_length` znaków
+           (czyli PDF jest skanem), automatycznie uruchamia OCR.
+        """
+        text = self.read_pdf_plumber(pdf_path)
+        clean_len = len("".join(text.split()))
+
+        if clean_len < min_text_length:
+            return self.read_pdf_ocr(pdf_path)
+
+        return text
