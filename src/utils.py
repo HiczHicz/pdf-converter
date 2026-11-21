@@ -34,6 +34,53 @@ class DataExplorer:
             raise IsADirectoryError(f"Podana ścieżka nie jest plikiem: {path}")
         return path
 
+    @staticmethod
+    def group_files_by_extension(
+        file_paths: list[str | Path],
+        allowed_extensions: list[str] | None = None,
+    ) -> dict[str, list[Path]]:
+        """
+        Grupuje ścieżki używając str(p).rsplit(".", 1).
+        Dozwolone rozszerzenia (zaczynając od .json) trafiają do swoich kluczy, reszta do 'unknown'.
+        """
+        if allowed_extensions is None:
+            allowed_extensions = [".json", ".pdf", ".csv", ".txt"]
+
+        allowed = {
+            ext.lower() if ext.startswith(".") else f".{ext.lower()}"
+            for ext in allowed_extensions
+        }
+
+        grouped: dict[str, list[Path]] = {ext: [] for ext in allowed}
+        grouped["unknown"] = []
+
+        for p in file_paths:
+            path_obj = Path(p)
+            parts = str(path_obj).rsplit(".", 1)
+
+            if len(parts) == 2:
+                ext = f".{parts[1].lower()}"
+            else:
+                ext = ""
+
+            if ext in allowed:
+                grouped[ext].append(path_obj)
+            else:
+                grouped["unknown"].append(path_obj)
+
+        return grouped
+
+    @staticmethod
+    def filter_by_extension(
+        grouped_files: dict[str, list[Path]],
+        target_extension: str,
+    ) -> list[Path]:
+        """Zwraca listę plików dla wskazanego rozszerzenia (lub 'unknown') z wyniku group_files_by_extension."""
+        key = target_extension.lower()
+        if key != "unknown" and not key.startswith("."):
+            key = f".{key}"
+        return grouped_files.get(key, [])
+
     def read_pdf_pymupdf(self, pdf_path: str | Path) -> str:
         """Najszybsza opcja — wyciąga czysty tekst przez PyMuPDF."""
         path = self._check_pdf_path(pdf_path)
