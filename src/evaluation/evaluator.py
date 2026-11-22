@@ -31,6 +31,10 @@ def _normalize_value(val: Any) -> Any:
     return val
 
 
+def _is_null(val: Any) -> bool:
+    return val is None or (isinstance(val, str) and not val.strip()) or val == []
+
+
 @dataclass
 class FieldDiff:
     file_name: str
@@ -48,6 +52,18 @@ class EvaluationReport:
     per_label: dict[str, list[float]] = field(default_factory=lambda: defaultdict(list))
     per_field_hits: dict[str, int] = field(default_factory=lambda: defaultdict(int))
     per_field_total: dict[str, int] = field(default_factory=lambda: defaultdict(int))
+    per_field_expected_null: dict[str, int] = field(default_factory=lambda: defaultdict(int))
+    per_field_expected_null_predicted_value: dict[str, int] = field(default_factory=lambda: defaultdict(int))
+    per_field_expected_value: dict[str, int] = field(default_factory=lambda: defaultdict(int))
+    per_field_predicted_null_for_value: dict[str, int] = field(default_factory=lambda: defaultdict(int))
+    per_field_wrong_non_null: dict[str, int] = field(default_factory=lambda: defaultdict(int))
+    per_field_wrong_non_null_total: dict[str, int] = field(default_factory=lambda: defaultdict(int))
+    per_label_expected_null: dict[str, int] = field(default_factory=lambda: defaultdict(int))
+    per_label_expected_value: dict[str, int] = field(default_factory=lambda: defaultdict(int))
+    per_label_expected_null_predicted_value: dict[str, int] = field(default_factory=lambda: defaultdict(int))
+    per_label_predicted_null_for_value: dict[str, int] = field(default_factory=lambda: defaultdict(int))
+    per_label_wrong_non_null: dict[str, int] = field(default_factory=lambda: defaultdict(int))
+    per_label_wrong_non_null_total: dict[str, int] = field(default_factory=lambda: defaultdict(int))
     diffs: list[FieldDiff] = field(default_factory=list)
     missing_gt: list[str] = field(default_factory=list)
 
@@ -77,6 +93,74 @@ class EvaluationReport:
         for acc, fname, hits, tot in sorted(field_scores)[:15]:
             print(f"  {fname:<45}: {acc:.2%} ({hits}/{tot})")
 
+        print("\n--- Pola z nieoczekiwanymi nullami (oczekiwano wartość, predykcja null) ---")
+        null_field_scores = [
+            (
+                self.per_field_predicted_null_for_value[f] / self.per_field_expected_value[f],
+                f,
+                self.per_field_predicted_null_for_value[f],
+                self.per_field_expected_value[f],
+            )
+            for f in self.per_field_expected_value
+            if self.per_field_expected_value[f]
+        ]
+        for rate, fname, count, total in sorted(null_field_scores, reverse=True)[:15]:
+            print(f"  {fname:<45}: {rate:.2%} ({count}/{total})")
+        if not null_field_scores:
+            print("  Brak takich przypadków.")
+
+        print("\n--- Pola z nieoczekiwanymi wartościami (wzorzec null, predykcja wartość) ---")
+        unexpected_value_scores = [
+            (
+                self.per_field_expected_null_predicted_value[f] / self.per_field_expected_null[f],
+                f,
+                self.per_field_expected_null_predicted_value[f],
+                self.per_field_expected_null[f],
+            )
+            for f in self.per_field_expected_null
+            if self.per_field_expected_null[f]
+        ]
+        for rate, fname, count, total in sorted(unexpected_value_scores, reverse=True)[:15]:
+            print(f"  {fname:<45}: {rate:.2%} ({count}/{total} wzorcowych nulli)")
+        if not unexpected_value_scores:
+            print("  Brak takich przypadków.")
+
+        print("\n--- Pola z wartością podaną, ale błędną ---")
+        wrong_field_scores = [
+            (
+                self.per_field_wrong_non_null[f] / self.per_field_wrong_non_null_total[f],
+                f,
+                self.per_field_wrong_non_null[f],
+                self.per_field_wrong_non_null_total[f],
+            )
+            for f in self.per_field_wrong_non_null_total
+            if self.per_field_wrong_non_null_total[f]
+        ]
+        for rate, fname, count, total in sorted(wrong_field_scores, reverse=True)[:15]:
+            print(f"  {fname:<45}: {rate:.2%} ({count}/{total})")
+        if not wrong_field_scores:
+            print("  Brak takich przypadków.")
+
+        print("\n--- Rozkład błędów per klasa dokumentu ---")
+        for label in sorted(self.per_label):
+            expected_value = self.per_label_expected_value[label]
+            expected_null = self.per_label_expected_null[label]
+            accidental_values = self.per_label_expected_null_predicted_value[label]
+            predicted_null = self.per_label_predicted_null_for_value[label]
+            wrong_value = self.per_label_wrong_non_null[label]
+            wrong_value_total = self.per_label_wrong_non_null_total[label]
+            print(
+                f"  {label:<18}: wzorzec null/predykcja wartość: "
+                f"{accidental_values}/{expected_null} "
+                f"({(accidental_values / expected_null if expected_null else 0):.2%}); "
+                f"wzorzec wartość/predykcja null: "
+                f"{predicted_null}/{expected_value} "
+                f"({(predicted_null / expected_value if expected_value else 0):.2%}); "
+                f"wartość podana, ale błędna: "
+                f"{wrong_value}/{wrong_value_total} "
+                f"({(wrong_value / wrong_value_total if wrong_value_total else 0):.2%})"
+            )
+
         if self.diffs:
             print(f"\n--- Przykładowe rozbieżności (max {max_diffs}) ---")
             for d in self.diffs[:max_diffs]:
@@ -103,6 +187,28 @@ class ExtractionEvaluator:
             exp_val = exp_flat.get(key)
             pred_val = pred_flat.get(key)
             is_match = _normalize_value(exp_val) == _normalize_value(pred_val)
+            exp_is_null = _is_null(exp_val)
+            pred_is_null = _is_null(pred_val)
+            field_name = f"{label}:{key}"
+
+            if exp_is_null:
+                report.per_field_expected_null[field_name] += 1
+                report.per_label_expected_null[label] += 1
+                if not pred_is_null:
+                    report.per_field_expected_null_predicted_value[field_name] += 1
+                    report.per_label_expected_null_predicted_value[label] += 1
+            else:
+                report.per_field_expected_value[field_name] += 1
+                report.per_label_expected_value[label] += 1
+                if pred_is_null:
+                    report.per_field_predicted_null_for_value[field_name] += 1
+                    report.per_label_predicted_null_for_value[label] += 1
+                else:
+                    report.per_field_wrong_non_null_total[field_name] += 1
+                    report.per_label_wrong_non_null_total[label] += 1
+                    if not is_match:
+                        report.per_field_wrong_non_null[field_name] += 1
+                        report.per_label_wrong_non_null[label] += 1
 
             report.total_fields += 1
             report.per_field_total[f"{label}:{key}"] += 1

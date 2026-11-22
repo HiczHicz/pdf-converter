@@ -74,7 +74,7 @@ class ZamawiajacyItem(BaseModel):
     nazwa: str | None = None
     nip: str | None = None
     regon: str | None = None
-    prowadzacy_postepowanie: str | None = None
+    prowadzacy_postepowanie: int | str | None = None
 
 
 class ZamowieniePubliczneData(BaseModel):
