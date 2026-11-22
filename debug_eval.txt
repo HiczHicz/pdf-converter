@@ -1,0 +1,456 @@
+=== EWALUACJA (182 plików) ===
+Overall field accuracy: 67.08% (1948/2904)
+
+[UWAGA] Brak wzorcowego .json dla 58 plików (pierwsze 5):
+  - /Users/tynka/Documents/pdf-converter/hacknation-2026-main/dane/przyklad_03/potwierdzenie_przelewu.json
+  - /Users/tynka/Documents/pdf-converter/hacknation-2026-main/dane/przyklad_04/potwierdzenie_przelewu.json
+  - /Users/tynka/Documents/pdf-converter/hacknation-2026-main/dane/przyklad_05/potwierdzenie_przelewu.json
+  - /Users/tynka/Documents/pdf-converter/hacknation-2026-main/dane/przyklad_06/potwierdzenie_przelewu.json
+  - /Users/tynka/Documents/pdf-converter/hacknation-2026-main/dane/przyklad_07/potwierdzenie_przelewu.json
+
+--- Per klasa dokumentu ---
+  odwolanie         : 76.25% (80 plików)
+  pelnomocnictwo    : 53.66% (80 plików)
+  przelew           : 69.70% (22 plików)
+
+--- Najsłabsze pola ---
+  pelnomocnictwo:mocodawca[0].podpisujacy[1].imie_nazwisko: 0.00% (0/31)
+  pelnomocnictwo:mocodawca[1].data.krs         : 0.00% (0/8)
+  pelnomocnictwo:mocodawca[1].data.nazwa       : 0.00% (0/8)
+  pelnomocnictwo:mocodawca[1].data.nip         : 0.00% (0/8)
+  pelnomocnictwo:mocodawca[1].data.typ         : 0.00% (0/8)
+  pelnomocnictwo:mocodawca[1].podpisujacy[0].imie_nazwisko: 0.00% (0/8)
+  pelnomocnictwo:mocodawca[1].podpisujacy[1].imie_nazwisko: 0.00% (0/4)
+  pelnomocnictwo:pelnomocnicy[10].imie_nazwisko: 0.00% (0/1)
+  pelnomocnictwo:pelnomocnicy[2].imie_nazwisko : 0.00% (0/26)
+  pelnomocnictwo:pelnomocnicy[3].imie_nazwisko : 0.00% (0/16)
+  pelnomocnictwo:pelnomocnicy[4].imie_nazwisko : 0.00% (0/9)
+  pelnomocnictwo:pelnomocnicy[5].imie_nazwisko : 0.00% (0/8)
+  pelnomocnictwo:pelnomocnicy[6].imie_nazwisko : 0.00% (0/6)
+  pelnomocnictwo:pelnomocnicy[7].imie_nazwisko : 0.00% (0/4)
+  pelnomocnictwo:pelnomocnicy[8].imie_nazwisko : 0.00% (0/3)
+
+--- Pola z nieoczekiwanymi nullami (oczekiwano wartość, predykcja null) ---
+  pelnomocnictwo:pelnomocnicy[2].imie_nazwisko : 100.00% (4/4)
+  pelnomocnictwo:pelnomocnicy[1].pesel         : 100.00% (2/2)
+  pelnomocnictwo:mocodawca[1].podpisujacy[1].imie_nazwisko: 100.00% (4/4)
+  pelnomocnictwo:mocodawca[1].podpisujacy[0].imie_nazwisko: 100.00% (8/8)
+  pelnomocnictwo:mocodawca[1].data.typ         : 100.00% (8/8)
+  pelnomocnictwo:mocodawca[1].data.nip         : 100.00% (8/8)
+  pelnomocnictwo:mocodawca[1].data.nazwa       : 100.00% (8/8)
+  pelnomocnictwo:mocodawca[1].data.krs         : 100.00% (8/8)
+  pelnomocnictwo:mocodawca[0].podpisujacy[1].imie_nazwisko: 100.00% (31/31)
+  pelnomocnictwo:mocodawca[0].data.imie_nazwisko: 100.00% (6/6)
+  pelnomocnictwo:pelnomocnicy[0].pesel         : 71.43% (5/7)
+  pelnomocnictwo:mocodawca[0].podpisujacy[0].imie_nazwisko: 58.75% (47/80)
+  pelnomocnictwo:mocodawca[0].data.nip         : 46.25% (37/80)
+  pelnomocnictwo:mocodawca[0].data.typ         : 43.75% (35/80)
+  pelnomocnictwo:mocodawca[0].data.krs         : 41.89% (31/74)
+
+--- Pola z nieoczekiwanymi wartościami (wzorzec null, predykcja wartość) ---
+  pelnomocnictwo:pelnomocnicy[9].imie_nazwisko : 100.00% (2/2 wzorcowych nulli)
+  pelnomocnictwo:pelnomocnicy[8].imie_nazwisko : 100.00% (3/3 wzorcowych nulli)
+  pelnomocnictwo:pelnomocnicy[7].imie_nazwisko : 100.00% (4/4 wzorcowych nulli)
+  pelnomocnictwo:pelnomocnicy[6].imie_nazwisko : 100.00% (6/6 wzorcowych nulli)
+  pelnomocnictwo:pelnomocnicy[5].imie_nazwisko : 100.00% (8/8 wzorcowych nulli)
+  pelnomocnictwo:pelnomocnicy[4].imie_nazwisko : 100.00% (9/9 wzorcowych nulli)
+  pelnomocnictwo:pelnomocnicy[3].imie_nazwisko : 100.00% (16/16 wzorcowych nulli)
+  pelnomocnictwo:pelnomocnicy[2].imie_nazwisko : 100.00% (22/22 wzorcowych nulli)
+  pelnomocnictwo:pelnomocnicy[1].imie_nazwisko : 100.00% (9/9 wzorcowych nulli)
+  pelnomocnictwo:pelnomocnicy[10].imie_nazwisko: 100.00% (1/1 wzorcowych nulli)
+  pelnomocnictwo:mocodawca[0].data.nazwa       : 100.00% (2/2 wzorcowych nulli)
+  odwolanie:OdwolanieKIO.miejscowosc           : 33.33% (5/15 wzorcowych nulli)
+  odwolanie:OdwolanieKIO.data                  : 33.33% (5/15 wzorcowych nulli)
+  odwolanie:ZamowieniePubliczne.numer_ted      : 26.32% (5/19 wzorcowych nulli)
+  odwolanie:Zamawiajacy[0].krs                 : 16.00% (4/25 wzorcowych nulli)
+
+--- Pola z wartością podaną, ale błędną ---
+  przelew:przelew_bankowy.tytul                : 85.71% (12/14)
+  pelnomocnictwo:mocodawca[0].data.nazwa       : 76.67% (46/60)
+  przelew:przelew_bankowy.numer_transakcji     : 66.67% (4/6)
+  pelnomocnictwo:pelnomocnicy[1].imie_nazwisko : 64.52% (20/31)
+  pelnomocnictwo:pelnomocnicy[0].imie_nazwisko : 60.00% (33/55)
+  odwolanie:OdwolanieKIO.czynnosc_powod_id     : 41.67% (25/60)
+  odwolanie:OdwolanieKIO.czynnosc_opis         : 41.67% (25/60)
+  odwolanie:ZamowieniePubliczne.numer_bzp      : 34.00% (17/50)
+  odwolanie:ZamowieniePubliczne.tytul          : 33.33% (26/78)
+  odwolanie:OdwolanieKIO.miejscowosc           : 29.51% (18/61)
+  odwolanie:Odwolujacy[0].przez-pelnomocnika   : 22.50% (18/80)
+  przelew:przelew_bankowy.z_rachunku           : 18.18% (4/22)
+  pelnomocnictwo:mocodawca[0].podpisujacy[0].imie_nazwisko: 15.15% (5/33)
+  odwolanie:OdwolanieKIO.data                  : 11.86% (7/59)
+  odwolanie:Odwolujacy[0].nazwa                : 10.00% (6/60)
+
+--- Rozkład błędów per klasa dokumentu ---
+  odwolanie         : wzorzec null/predykcja wartość: 23/217 (10.60%); wzorzec wartość/predykcja null: 253/1568 (16.14%); wartość podana, ale błędna: 152/1315 (11.56%)
+  pelnomocnictwo    : wzorzec null/predykcja wartość: 82/373 (21.98%); wzorzec wartość/predykcja null: 302/614 (49.19%); wartość podana, ale błędna: 104/312 (33.33%)
+  przelew           : wzorzec null/predykcja wartość: 0/12 (0.00%); wzorzec wartość/predykcja null: 20/120 (16.67%); wartość podana, ale błędna: 20/100 (20.00%)
+
+--- Przykładowe rozbieżności (max 60) ---
+  [pelnomocnictwo] przyklad_01/pelnomocnictwo.pdf | mocodawca[0].podpisujacy[0].imie_nazwisko
+      expected : 'Oliwia Kaczmarek'
+      predicted: None
+  [pelnomocnictwo] przyklad_01/pelnomocnictwo.pdf | pelnomocnicy[1].imie_nazwisko
+      expected : 'Jolanta Zajkowski'
+      predicted: None
+  [odwolanie] przyklad_02/odwolanie.pdf | OdwolanieKIO.czynnosc_opis
+      expected : 'Decyzja o odrzuceniu oferty'
+      predicted: 'Decyzja o unieważnieniu postępowania'
+  [odwolanie] przyklad_02/odwolanie.pdf | OdwolanieKIO.czynnosc_powod_id
+      expected : 1
+      predicted: 9
+  [pelnomocnictwo] przyklad_03/pelnomocnictwo.pdf | mocodawca[0].data.nazwa
+      expected : 'Silvatica Automatyka sp. k.'
+      predicted: 'Silvatica Automatyka sp. k. (dalej: "Wykonawca")'
+  [pelnomocnictwo] przyklad_03/pelnomocnictwo.pdf | pelnomocnicy[0].imie_nazwisko
+      expected : 'Norbert Szulc'
+      predicted: None
+  [pelnomocnictwo] przyklad_04/pelnomocnictwo.pdf | mocodawca[0].data.nazwa
+      expected : 'Gildentia Wyposażenie sp. z o.o.'
+      predicted: None
+  [pelnomocnictwo] przyklad_04/pelnomocnictwo.pdf | mocodawca[0].podpisujacy[0].imie_nazwisko
+      expected : 'Ewa Szulc'
+      predicted: 'miejsce na pieczęć firmową'
+  [pelnomocnictwo] przyklad_04/pelnomocnictwo.pdf | pelnomocnicy[1].imie_nazwisko
+      expected : 'Sławomir Ostrowczyk'
+      predicted: None
+  [pelnomocnictwo] przyklad_05/pelnomocnictwo.pdf | mocodawca[0].data.nazwa
+      expected : 'Corvantis Wyposażenie sp. z o.o.'
+      predicted: 'PEŁNOMOCNIK'
+  [pelnomocnictwo] przyklad_05/pelnomocnictwo.pdf | pelnomocnicy[0].imie_nazwisko
+      expected : 'Ignacy Sadowski'
+      predicted: 'Corvantis Wyposażenie'
+  [pelnomocnictwo] przyklad_05/pelnomocnictwo.pdf | pelnomocnicy[1].imie_nazwisko
+      expected : None
+      predicted: 'Ignacy Sadowski'
+  [odwolanie] przyklad_06/odwolanie.pdf | OdwolanieKIO.czynnosc_opis
+      expected : 'Publikacja specyfikacji warunków zamówienia (SWZ)'
+      predicted: 'Decyzja o unieważnieniu postępowania'
+  [odwolanie] przyklad_06/odwolanie.pdf | OdwolanieKIO.czynnosc_powod_id
+      expected : 4
+      predicted: 9
+  [pelnomocnictwo] przyklad_06/pelnomocnictwo.pdf | mocodawca[0].data.nazwa
+      expected : 'Silvatica Technologie sp. z o.o.'
+      predicted: None
+  [pelnomocnictwo] przyklad_06/pelnomocnictwo.pdf | mocodawca[0].podpisujacy[0].imie_nazwisko
+      expected : 'Bartosz Zajkowski'
+      predicted: None
+  [pelnomocnictwo] przyklad_06/pelnomocnictwo.pdf | mocodawca[0].podpisujacy[1].imie_nazwisko
+      expected : 'Oliwia Gajewski'
+      predicted: None
+  [pelnomocnictwo] przyklad_06/pelnomocnictwo.pdf | pelnomocnicy[0].imie_nazwisko
+      expected : 'Jolanta Szulc'
+      predicted: None
+  [pelnomocnictwo] przyklad_07/pelnomocnictwo.pdf | mocodawca[0].podpisujacy[0].imie_nazwisko
+      expected : 'Halina Mazurkiewicz'
+      predicted: 'Sławomir Szulc'
+  [pelnomocnictwo] przyklad_07/pelnomocnictwo.pdf | mocodawca[0].podpisujacy[1].imie_nazwisko
+      expected : 'Sławomir Szulc'
+      predicted: None
+  [pelnomocnictwo] przyklad_08/pelnomocnictwo.pdf | mocodawca[0].podpisujacy[0].imie_nazwisko
+      expected : 'Halina Ostrowczyk'
+      predicted: None
+  [pelnomocnictwo] przyklad_08/pelnomocnictwo.pdf | mocodawca[0].podpisujacy[1].imie_nazwisko
+      expected : 'Ryszard Lewandowski'
+      predicted: None
+  [pelnomocnictwo] przyklad_09/pelnomocnictwo.pdf | mocodawca[0].data.nazwa
+      expected : 'Iberis Sieci sp. z o.o.'
+      predicted: 'Iberis Sieci sp. z o.o. (dalej: "Wykonawca")'
+  [pelnomocnictwo] przyklad_09/pelnomocnictwo.pdf | mocodawca[0].podpisujacy[0].imie_nazwisko
+      expected : 'Dorota Borkowski'
+      predicted: None
+  [pelnomocnictwo] przyklad_09/pelnomocnictwo.pdf | pelnomocnicy[0].imie_nazwisko
+      expected : 'Weronika Kaczmarek'
+      predicted: None
+  [pelnomocnictwo] przyklad_09/pelnomocnictwo.pdf | pelnomocnicy[1].imie_nazwisko
+      expected : 'Weronika Chmielewski'
+      predicted: None
+  [pelnomocnictwo] przyklad_10/pelnomocnictwo.pdf | mocodawca[0].data.nazwa
+      expected : 'Meridian Konsulting sp. j.'
+      predicted: None
+  [pelnomocnictwo] przyklad_10/pelnomocnictwo.pdf | mocodawca[0].podpisujacy[0].imie_nazwisko
+      expected : 'Halina Przybylski'
+      predicted: None
+  [pelnomocnictwo] przyklad_10/pelnomocnictwo.pdf | mocodawca[0].podpisujacy[1].imie_nazwisko
+      expected : 'Ignacy Milewski'
+      predicted: None
+  [pelnomocnictwo] przyklad_10/pelnomocnictwo.pdf | pelnomocnicy[0].imie_nazwisko
+      expected : 'Patrycja Rutkiewicz'
+      predicted: None
+  [pelnomocnictwo] przyklad_10/pelnomocnictwo.pdf | pelnomocnicy[1].imie_nazwisko
+      expected : 'Marek Łukaszewski'
+      predicted: None
+  [pelnomocnictwo] przyklad_11/pelnomocnictwo.pdf | mocodawca[0].data.nazwa
+      expected : 'Quantis Serwis sp. k.'
+      predicted: 'PEŁNOMOCNIK'
+  [pelnomocnictwo] przyklad_11/pelnomocnictwo.pdf | pelnomocnicy[0].imie_nazwisko
+      expected : 'Cezary Bartoszewicz'
+      predicted: 'Quantis Serwis'
+  [pelnomocnictwo] przyklad_11/pelnomocnictwo.pdf | pelnomocnicy[1].imie_nazwisko
+      expected : None
+      predicted: 'Cezary Bartoszewicz'
+  [pelnomocnictwo] przyklad_12/pelnomocnictwo.pdf | mocodawca[0].data.nazwa
+      expected : 'Wexford Usługi sp. j.'
+      predicted: None
+  [pelnomocnictwo] przyklad_12/pelnomocnictwo.pdf | pelnomocnicy[0].imie_nazwisko
+      expected : 'Klaudia Dobrowolski'
+      predicted: None
+  [pelnomocnictwo] przyklad_13/pelnomocnictwo.pdf | mocodawca[0].podpisujacy[0].imie_nazwisko
+      expected : 'Oliwia Górnicki'
+      predicted: 'Jolanta Kaczmarek'
+  [pelnomocnictwo] przyklad_13/pelnomocnictwo.pdf | mocodawca[0].podpisujacy[1].imie_nazwisko
+      expected : 'Jolanta Kaczmarek'
+      predicted: None
+  [pelnomocnictwo] przyklad_13/pelnomocnictwo.pdf | pelnomocnicy[1].imie_nazwisko
+      expected : 'Weronika Furman'
+      predicted: None
+  [pelnomocnictwo] przyklad_14/pelnomocnictwo.pdf | mocodawca[0].podpisujacy[0].imie_nazwisko
+      expected : 'Zbigniew Dobrowolski'
+      predicted: None
+  [pelnomocnictwo] przyklad_14/pelnomocnictwo.pdf | mocodawca[0].podpisujacy[1].imie_nazwisko
+      expected : 'Marek Rutkiewicz'
+      predicted: None
+  [pelnomocnictwo] przyklad_15/pelnomocnictwo.pdf | mocodawca[0].data.nazwa
+      expected : 'Belmoria Systemy sp. j.'
+      predicted: 'Belmoria Systemy sp. j. (dalej: "Wykonawca")'
+  [pelnomocnictwo] przyklad_15/pelnomocnictwo.pdf | pelnomocnicy[0].imie_nazwisko
+      expected : 'Ryszard Lipowczyk'
+      predicted: None
+  [odwolanie] przyklad_16/odwolanie.pdf | OdwolanieKIO.czynnosc_opis
+      expected : 'Decyzja o wykluczeniu wykonawcy'
+      predicted: 'Decyzja o unieważnieniu postępowania'
+  [odwolanie] przyklad_16/odwolanie.pdf | OdwolanieKIO.czynnosc_powod_id
+      expected : 3
+      predicted: 9
+  [pelnomocnictwo] przyklad_16/pelnomocnictwo.pdf | mocodawca[0].data.nazwa
+      expected : 'Umbria Serwis S.A.'
+      predicted: None
+  [pelnomocnictwo] przyklad_16/pelnomocnictwo.pdf | mocodawca[0].podpisujacy[0].imie_nazwisko
+      expected : 'Marek Dobrowolski'
+      predicted: None
+  [pelnomocnictwo] przyklad_16/pelnomocnictwo.pdf | mocodawca[0].podpisujacy[1].imie_nazwisko
+      expected : 'Ryszard Biernacki'
+      predicted: None
+  [pelnomocnictwo] przyklad_16/pelnomocnictwo.pdf | pelnomocnicy[0].imie_nazwisko
+      expected : 'Cezary Szymanski'
+      predicted: None
+  [pelnomocnictwo] przyklad_16/pelnomocnictwo.pdf | pelnomocnicy[1].imie_nazwisko
+      expected : 'Patrycja Bąkiewicz'
+      predicted: None
+  [pelnomocnictwo] przyklad_17/pelnomocnictwo.pdf | mocodawca[0].data.nazwa
+      expected : 'Kavendis Infrastruktura sp. z o.o.'
+      predicted: 'PEŁNOMOCNIK'
+  [pelnomocnictwo] przyklad_17/pelnomocnictwo.pdf | pelnomocnicy[0].imie_nazwisko
+      expected : 'Norbert Milewski'
+      predicted: 'Kavendis Infrastruktura'
+  [pelnomocnictwo] przyklad_17/pelnomocnictwo.pdf | pelnomocnicy[1].imie_nazwisko
+      expected : None
+      predicted: 'Norbert Milewski'
+  [pelnomocnictwo] przyklad_18/pelnomocnictwo.pdf | mocodawca[0].data.nazwa
+      expected : 'Balttec Infrastruktura S.A.'
+      predicted: None
+  [pelnomocnictwo] przyklad_19/pelnomocnictwo.pdf | mocodawca[0].podpisujacy[0].imie_nazwisko
+      expected : 'Sławomir Niedźwiecki'
+      predicted: 'Ewa Dudziewicz'
+  [pelnomocnictwo] przyklad_19/pelnomocnictwo.pdf | mocodawca[0].podpisujacy[1].imie_nazwisko
+      expected : 'Ewa Dudziewicz'
+      predicted: None
+  [pelnomocnictwo] przyklad_20/pelnomocnictwo.pdf | mocodawca[0].podpisujacy[0].imie_nazwisko
+      expected : 'Sławomir Dudek'
+      predicted: None
+  [pelnomocnictwo] przyklad_20/pelnomocnictwo.pdf | mocodawca[0].podpisujacy[1].imie_nazwisko
+      expected : 'Sławomir Mazurkiewicz'
+      predicted: None
+  [pelnomocnictwo] przyklad_21/pelnomocnictwo.pdf | mocodawca[0].data.nazwa
+      expected : 'Corvella Rozwiązania S.A.'
+      predicted: 'Corvella Rozwiązania S.A. (dalej: "Wykonawca")'
+  [pelnomocnictwo] przyklad_21/pelnomocnictwo.pdf | pelnomocnicy[0].imie_nazwisko
+      expected : 'Marek Sikorski'
+      predicted: None
+
+
+=== SAMPLES ===
+{
+  "odwolanie": [
+    {
+      "file": "przyklad_01/odwolanie.pdf",
+      "expected_json": {
+        "OdwolanieKIO": {
+          "data": null,
+          "czynnosc_dzien": "2026-03-20",
+          "czynnosc_powod_id": 9,
+          "czynnosc_opis": "Decyzja o unieważnieniu postępowania",
+          "miejscowosc": null
+        },
+        "Odwolujacy": [
+          {
+            "krs": "9999405188",
+            "nazwa": "Belmoria Rozwiązania S.A.",
+            "nip": "9999284065",
+            "regon": "999642785",
+            "przez-pelnomocnika": 1,
+            "pelnomocnik": {
+              "imie_nazwisko": "Aleksandra Marciniak",
+              "nazwa": "Kancelaria Adwokacka Spółka z ograniczoną odpowiedzialnością",
+              "mail": "biuro@poczta.example"
+            }
+          }
+        ],
+        "Zamawiajacy": [
+          {
+            "krs": "9999716254",
+            "nazwa": "Aurelink Automatyka S.A.",
+            "nip": "9997518659",
+            "regon": "999184816",
+            "prowadzacy_postepowanie": null
+          }
+        ],
+        "ZamowieniePubliczne": {
+          "numer_bzp": "2026/BZP00999778",
+          "numer_postepowania": "ZS.791.2026",
+          "numer_ted": "999137-2026",
+          "tytul": "Zakup i dostawa sprzętu komputerowego wraz z oprogramowaniem oraz usługą wdrożenia"
+        }
+      },
+      "text_clean": "Prezes Krajowej Izby Odwoławczej\nul. Postępu 17A\n02-676 Warszawa\nOdwołujący:\nBelmoria Rozwiązania S.A.\nul. Zaczarowana 78, 90-803 Łódź\nKRS: 9999405188, NIP: 9999284065, REGON: 999642785\nreprezentowana przez: r. pr. Aleksandra Marciniak, r. pr. Jolanta Zajkowski\nadres do korespondencji: Kancelaria Adwokacka Spółka z ograniczoną\nodpowiedzialnością, ul. Jasionowa 19, 80-994 Gdańsk\ntel. 000 000 000, biuro@poczta.example\nZamawiający:\nAurelink Automatyka S.A.\nul. Rybacka 79, 50-580 Wrocław\nKRS: 9999716254, NIP: 9997518659, REGON: 999184816\nkontakt@sekretariat.example\nODWOŁANIE\ndotyczy:\npostępowania o udzielenie zamówienia w trybie przetargu nieograniczonego pn.\n\"Zakup i dostawa sprzętu komputerowego wraz z oprogramowaniem oraz usługą\nwdrożenia\" nr referencyjny sprawy: ZS.791.2026, ogłoszenie o zamówieniu nr\n2026/BZP00999778, numer ogłoszenia TED: 999137-2026\nDziałając w imieniu wykonawcy Belmoria Rozwiązania S.A. (dalej: \"Odwołujący\"), w\noparciu o załączone pełnomocnictwo, na podstawie art. 513 pkt 1) i 2) w zw. z art.\n515 ust. 2 pkt 1) lit. a) ustawy z dnia 11 września 2019 r. - Prawo zamówień\npublicznych (dalej: \"Prawo zamówień publicznych\" lub \"Pzp\"), wnoszę o:\nZamawiający w dniu 20 marca 2026 roku unieważniił postępowanie.\nZarzut nr 1 naruszenia obowiązku sporządzenia dokumentacji\npostępowania w sposób przejrzysty:\na).1. Dokumentacja postępowania nie zawiera pełnego uzasadnienia przyjętych\nwymagań, co utrudnia ustalenie rzeczywistego kryterium oceny ofert i weryfikację\nwyniku postępowania.\nStrona 1 z 2\na).2. Brak takiego uzasadnienia uniemożliwia również rozpatrzenie odwołania w\nsposób merytoryczny, co narusza prawo Odwołującego do skutecznego wniesienia\nodwołania.\nZarzut nr 2 błędnej oceny ofert ze względu na niejasne kryteria:\nb).1. Kryteria oceny ofert wskazane w dokumentacji postępowania nie są\nsformułowane w sposób jednoznaczny, a sposób ich zastosowania przez\nZamawiającego nie został wyjaśniony, co uniemożliwia zweryfikowanie\npoprawności dokonanej oceny.\nb).2. Wobec powyższego Ocena ofert została dokonana w sposób, który nie\nzapewnia porównywalności ofert i nie gwarantuje wyboru najkorzystniejszej oferty\nzgodnie z przyjętymi kryteriami.\nZarzut nr 3 naruszenia zasady równego traktowania wykonawców:\nc).1. Opis Przedmiotu Zamówienia wskazuje rozwiązania o znaczeniu znamiennym\ndla przedmiotu zamówienia, które w sposób nieadekwatny ograniczają krąg\npotencjalnych wykonawców i mogą skutkować nieuzasadnionym preferowaniem\npodmiotów dysponujących określoną technologią.\nc).2. Wobec braku obiektywnych i sprawdzalnych kryteriów oceny ofert\nZamawiający nie wykazał, że zastosowane wymagania są proporcjonalne i\nniezbędne do osiągnięcia celu postępowania.\nWnoszę o:\na) wnoszę o oddalenie zarzutów odwołania;\nb) wnoszę o uwzględnienie odwołania w zakresie, w jakim zarzuty odwołania są\nzasadne;\na) pełnomocnictwo udzielone przedstawicielowi Odwołującego;\nb) oświadczenie o niezaleganiu z podatkami i składkami;\nc) odwołanie wraz z uzasadnieniem;\nd) dokument potwierdzający nadanie odwołania;\n.............................. ..............................\nAleksandra Marciniak, r. pr. Jolanta Zajkowski, r. pr.\nStrona 2 z 2"
+    },
+    {
+      "file": "przyklad_02/odwolanie.pdf",
+      "expected_json": {
+        "OdwolanieKIO": {
+          "data": "2026-09-03",
+          "czynnosc_dzien": "2026-08-22",
+          "czynnosc_powod_id": 1,
+          "czynnosc_opis": "Decyzja o odrzuceniu oferty",
+          "miejscowosc": "Gdańsk"
+        },
+        "Odwolujacy": [
+          {
+            "krs": "9999669444",
+            "nazwa": "Hartica Serwis S.A.",
+            "nip": "9990678035",
+            "regon": "999114017",
+            "przez-pelnomocnika": 1,
+            "pelnomocnik": {
+              "imie_nazwisko": "Bartosz Szymanski",
+              "nazwa": "Kancelaria Adwokacka i Partnerzy",
+              "mail": "biuro@kontakt.example"
+            }
+          }
+        ],
+        "Zamawiajacy": [
+          {
+            "krs": "9993122884",
+            "nazwa": "Eurosept Infrastruktura S.A.",
+            "nip": "9996097888",
+            "regon": "999725710",
+            "prowadzacy_postepowanie": null
+          }
+        ],
+        "ZamowieniePubliczne": {
+          "numer_bzp": null,
+          "numer_postepowania": "ZP.431.2026",
+          "numer_ted": "999073-2026",
+          "tytul": "Dostawa materiałów eksploatacyjnych do urządzeń biurowych"
+        }
+      },
+      "text_clean": "Prezes Krajowej Izby Odwoławczej\nul. Postępu 17A\n02-676 Warszawa\nZamawiający:\nEurosept Infrastruktura S.A.\nul. Huta 90, 20-829 Lublin\nKRS: 9993122884, NIP: 9996097888, REGON: 999725710\nkontakt@kontakt.example\nOdwołujący:\nHartica Serwis S.A.\nul. Akacjowa 54, 80-122 Gdańsk\nKRS: 9999669444, NIP: 9990678035, REGON: 999114017\nreprezentowana przez: adw. Bartosz Szymanski, adw. Cezary Wierzbicki\nadres do korespondencji: Kancelaria Adwokacka i Partnerzy, ul. Dębowa 32, 40-604 Katowice\ntel. 000 000 000, biuro@kontakt.example\ndotyczy:\npostępowania o udzielenie zamówienia w trybie negocjacji z ogłoszeniem pn. \"Dostawa materiałów eksploatacyjnych\ndo urządzeń biurowych\" nr referencyjny sprawy: ZP.431.2026, numer ogłoszenia TED: 2026/S086-999073\nGdańsk, dnia 3 września 2026 roku\nODWOŁANIE\nDziałając w imieniu wykonawcy Hartica Serwis S.A. (dalej: \"Odwołujący\"), w oparciu o załączone pełnomocnictwo, na\npodstawie art. 513 pkt 1) i 2) w zw. z art. 515 ust. 2 pkt 1) lit. a) ustawy z dnia 11 września 2019 r. - Prawo zamówień\npublicznych (dalej: \"Prawo zamówień publicznych\" lub \"Pzp\"), wnoszę o:\nZamawiający w dniu 22 sierpnia 2026 roku poinformował o odrzuceniu oferty złożonej przez Odwołującego.\nZarzut nr 1 nieopisania parametrów technicznych przedmiotu dostawy:\n1.1. Zamawiający sporządził Opis Przedmiotu Zamówienia bez podania kompletu parametrów technicznych, które\npowinny być wymagane od Wykonawców, przez co nie jest możliwe złożenie ofert porównywalnych między sobą.\n1.2. W szczególności dokumentacja postępowania nie wskazuje minimalnych wartości parametrów, których\nspełnienie stanowi ograniczenie udziału w postępowaniu, ani dopuszczalnych odstępstw od tych wartości, co\nprowadzi do swobodnego kształtowania przez Zamawiającego warunków udziału w postępowaniu.\nZarzut nr 2 zaniechania wezwania do wyjaśnień i przedstawienia dokumentów:\n2.1. Zamawiający nie wezwał Wykonawców do wyjaśnień dotyczących dokumentacji postępowania, mimo że z\ntreści Opisu Przedmiotu Zamówienia wynikały istotne wątpliwości mogące mieć wpływ na treść ofert.\n2.2. Zaniechanie to pozbawiło Wykonawców możliwości ustosunkowania się do dostrzeżonych nieprawidłowości,\nco narusza ich prawo do obrony swoich praw.\nWnoszę o:\n1. wnoszę o zasądzenie na rzecz Odwołującego kosztów postępowania odwoławczego;\n2. wnoszę o unieważnienie rozstrzygnięcia i przeprowadzenie postępowania z uwzględnieniem zarzutów podanych\nw niniejszym odwołaniu;\n3. wnoszę o uwzględnienie odwołania i przekazanie sprawy Zamawiającemu do ponownej oceny ofert;\nStrona 1 z 2\n1. dowód uiszczenia wadium;\n2. dokument potwierdzający nadanie odwołania;\n.............................. ..............................\nBartosz Szymanski, adw. Cezary Wierzbicki, adw.\nZgodnie z art. 527 ustawy odwołanie wnosi się w terminie 14 dni od dnia, w którym Wykonawca powziął lub\ndowiedział się o zaskarżonym rozstrzygnięciu.\nStrona 2 z 2"
+    }
+  ],
+  "pelnomocnictwo": [
+    {
+      "file": "przyklad_01/pelnomocnictwo.pdf",
+      "expected_json": {
+        "mocodawca": [
+          {
+            "data": {
+              "imie_nazwisko": null,
+              "krs": "9999405188",
+              "nazwa": "Belmoria Rozwiązania S.A.",
+              "nip": "9999284065",
+              "typ": "osoba_prawna"
+            },
+            "podpisujacy": [
+              {
+                "imie_nazwisko": "Oliwia Kaczmarek"
+              }
+            ]
+          }
+        ],
+        "pelnomocnicy": [
+          {
+            "imie_nazwisko": "Aleksandra Marciniak",
+            "pesel": null
+          },
+          {
+            "imie_nazwisko": "Jolanta Zajkowski",
+            "pesel": null
+          }
+        ]
+      },
+      "text_clean": "PEŁNOMOCNICTWO\nŁódź, 1 kwietnia 2026\n§ 1. Mocodawca\nMocodawcą jest Belmoria Rozwiązania S.A., ul. Zaczarowana 78, 90-803 Łódź, KRS 9999405188, NIP 9999284065, REGON\n999642785.\n§ 2. Pełnomocnik\nMocodawca ustanawiam pełnomocnikiem r. pr. Aleksandra Marciniak (nr wpisu na listę: WA 93198), r. pr. Jolanta\nZajkowski (nr wpisu na listę: WA 85176).\n§ 3. Postępowanie\nPełnomocnictwo dotyczy postępowania \"Zakup i dostawa sprzętu komputerowego wraz z oprogramowaniem oraz\nusługą wdrożenia\", numer postępowania: ZS.791.2026, prowadzonym przez Aurelink Automatyka S.A.\n§ 4. Zakres umocowania\nPełnomocnik jest umocowany w szczególności do:\n- wniesienia środków ochrony prawnej oraz składania skarg na orzeczenia Krajowej Izby Odwoławczej,\n- składania oświadczeń o przystąpieniu do postępowań toczonych się w wyniku wniesienia środków ochrony\nprawnej,\n- składania i odbierania pism procesowych w imieniu Wykonawcy,\n- udzielania dalszych pełnomocnictw radcom prawnym i adwokatom.\n§ 5. Czas obowiązywania\nPełnomocnictwo obowiązuje do zakończenia postępowania odwoławczego, w tym postępowania skargowego, i może\nzostać odwołane w każdym czasie.\nMocodawca: Pełnomocnictwo przyjmuję:\n............................. .............................\nOliwia Kaczmarek r. pr. Aleksandra Marciniak\nPrezes Zarządu\n.............................\nr. pr. Jolanta Zajkowski"
+    },
+    {
+      "file": "przyklad_02/pelnomocnictwo.pdf",
+      "expected_json": {
+        "mocodawca": [
+          {
+            "data": {
+              "imie_nazwisko": null,
+              "krs": "9999669444",
+              "nazwa": "Hartica Serwis S.A.",
+              "nip": "9990678035",
+              "typ": "osoba_prawna"
+            },
+            "podpisujacy": [
+              {
+                "imie_nazwisko": "Aleksandra Nowakowicz"
+              }
+            ]
+          }
+        ],
+        "pelnomocnicy": [
+          {
+            "imie_nazwisko": "Bartosz Szymanski",
+            "pesel": null
+          },
+          {
+            "imie_nazwisko": "Cezary Wierzbicki",
+            "pesel": null
+          }
+        ]
+      },
+      "text_clean": "P E Ł N O M O C N I C T W O\nMocodawca Hartica Serwis S.A.\nul. Akacjowa 54, 80-122 Gdańsk\nDane rejestrowe KRS 9999669444, NIP 9990678035, REGON 999114017\nPełnomocnicy adw. Bartosz Szymanski, nr wpisu WA 33513\nadw. Cezary Wierzbicki, nr wpisu WA 16243\nZamawiający Eurosept Infrastruktura S.A.\nPostępowanie Dostawa materiałów eksploatacyjnych do urządzeń biurowych\nnr ZP.431.2026\nZakres Mocodawca upoważniam wskazanym pełnomocnikom do:\n• zastępowania Wykonawcy na posiedzeniu i w rozprawie przed Krajową\nIzbą Odwoławczą,\n• wniesienia środków ochrony prawnej oraz składania skarg na orzeczenia\nKrajowej Izby Odwoławczej,\n• cofnięcia odwołania oraz zrzeczenia się roszczeń w zakresie\ndopuszczonym przepisami ustawy.\nData 03.09.2026\n............................................\nAleksandra Nowakowicz\nProkurent"
+    }
+  ],
+  "przelew": [
+    {
+      "file": "przyklad_01/przelew.pdf",
+      "expected_json": {
+        "przelew_bankowy": {
+          "data_operacji": "2026-03-21",
+          "kwota": 200.0,
+          "na_rachunek": "68438223049992295262834736",
+          "numer_transakcji": "CEN2604016344389",
+          "tytul": "opłata skarbowa od pełnomocnictwa dla Aleksandra Marciniak i Jolanta Zajkowski w postępowaniu przed KIO w przetargu ZS.791.2026 CEN2604016344389",
+          "z_rachunku": "05470680287581539721455024"
+        }
+      },
+      "text_clean": "POLECENIE PRZELEWU\nPotwierdzenie realizacji polecenia przelewu · Ekobank\nPłatnik Rachunek obciążany\nBelmoria Rozwiązania S.A. PL05470680287581539721455024\nul. Zaczarowana 78, 90-803 Łódź\nAdresat przelewu Rachunek odbiorcy\nAurelink Automatyka S.A. PL68438223049992295262834736\nul. Rybacka 79, 50-580 Wrocław\nKwota operacji Data transakcji\n200,00 PLN 2026-03-21\nOpis\nopłata skarbowa od pełnomocnictwa dla Aleksandra Marciniak i Jolanta Zajkowski w\npostępowaniu przed KIO w przetargu ZS.791.2026 CEN2604016344389\nNr ref.\nCEN2604016344389\nZREALIZOWANO\nPotwierdzenie ma charakter informacyjny i zostało sporządzone automatycznie przez system bankowości internetowej."
+    },
+    {
+      "file": "przyklad_02/przelew.pdf",
+      "expected_json": {
+        "przelew_bankowy": {
+          "data_operacji": "2026-08-23",
+          "kwota": 50.0,
+          "na_rachunek": "91159952782597505141926044",
+          "numer_transakcji": "CEN2609035760798",
+          "tytul": "opłata skarbowa od pełnomocnictwa dla Bartosz Szymanski i Cezary Wierzbicki w postępowaniu przed KIO w przetargu ZP.431.2026 CEN2609035760798",
+          "z_rachunku": "53678424593392529814420143"
+        }
+      },
+      "text_clean": "Potwierdzenie przelewu krajowego\nKredyt Północny · wydrukowano 26 sierpnia 2026\nPłatnik Beneficjent\nHartica Serwis S.A. Eurosept Infrastruktura S.A.\nul. Akacjowa 54, 80-122 Gdańsk ul. Huta 90, 20-829 Lublin\n53678424593392529814420143 91159952782597505141926044\nKwota operacji 50,00 zł\nData operacji 23 sierpnia 2026\nNumer referencyjny CEN2609035760798\nTytuł przelewu opłata skarbowa od pełnomocnictwa dla Bartosz Szymanski i Cezary Wierzbicki w postępowaniu\nprzed KIO w przetargu ZP.431.2026 CEN2609035760798\nTyp operacji Przelew zwykły\nKanał Serwis transakcyjny\nPotwierdzenie ma charakter informacyjny i zostało sporządzone automatycznie przez system bankowości internetowej."
+    }
+  ]
+}
