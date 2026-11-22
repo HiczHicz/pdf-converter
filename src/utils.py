@@ -3,8 +3,12 @@ import fitz          # pip install pymupdf
 import pdfplumber    # pip install pdfplumber
 from rapidocr_onnxruntime import RapidOCR  # pip install rapidocr-onnxruntime #pip install RapidOCR
 import json
-from preprocessing.patterns import ENTITY_PATTERNS
 import time
+import uuid
+from pathlib import Path
+from preprocessing.patterns import ENTITY_PATTERNS
+from preprocessing.base import TextPipeline
+from preprocessing.factory import PipelineFactory
 
 class DataExplorer:
     def __init__(self, data_path: str | Path = "./hacknation-2026-main/dane") -> None:
@@ -152,15 +156,19 @@ class DataExplorer:
             y.extend(y_)
         return X, y
 
-
-    import json
-import uuid
-from pathlib import Path
-
-from preprocessing.base import TextPipeline
-from preprocessing.factory import PipelineFactory
-from utils import DataExplorer
-
+    def load_file_jsonl(self, path: str | Path) -> tuple[list, list]:
+        p = Path(path)
+        X = []
+        y = []
+        with p.open("r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                item = json.loads(line)
+                X.append(item["text"])
+                y.append(item["label"])
+        return X, y
 
 def _resolve_label(pdf_path: Path, source_dir: Path) -> str | None:
     rel_str = str(pdf_path.relative_to(source_dir)).lower()
