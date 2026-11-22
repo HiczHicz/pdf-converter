@@ -28,9 +28,11 @@ Autonomiczny pipeline CLI działający lokalnie (offline, wyłącznie na CPU) do
 
 ```
 ## Instalacja i uruchomienie
+```bash
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 python -m spacy download pl_core_news_sm
 
 python main.py ./input -o ./output -m ./src/created_models/simple_text_classifier.joblib
+```
