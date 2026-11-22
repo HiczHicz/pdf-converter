@@ -11,3 +11,10 @@ dataset/
 src/preprocessing/__pycache__
 src/models/__pycache__
 negatywne
+dataset_neg/dataset_all_deduplicated.jsonl
+.gitignore
+dataset_neg/metadata_all.json
+worfkile.ipynb
+dataset_neg/dataset_all.jsonl
+worfkile.ipynb
+worfkile.ipynb
