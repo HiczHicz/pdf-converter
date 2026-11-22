@@ -1,0 +1,279 @@
+{
+  "dataset_file": "/Users/tynka/Documents/pdf-converter/dataset_neg/dataset_neg.jsonl",
+  "labels": [
+    "negatywne"
+  ],
+  "total_files": 45,
+  "files": [
+    {
+      "id": "87910aaace88478ab4a2f0a86ee3a0ad",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/(generated)Broszura informacyjna MF - Struktura logiczna JPK_FA(4).pdf",
+      "relative_path": "(generated)Broszura informacyjna MF - Struktura logiczna JPK_FA(4).pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "dceddaa58f874c889e0d90340c4066c1",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/(generated)Broszura informacyjna MF - Struktura logiczna JPK_MAG(2).pdf",
+      "relative_path": "(generated)Broszura informacyjna MF - Struktura logiczna JPK_MAG(2).pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "3b5c3cfac07e4143a9b8794e6f90782f",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/(generated)Broszura informacyjna MF - Struktura logiczna JPK_WB(1).pdf",
+      "relative_path": "(generated)Broszura informacyjna MF - Struktura logiczna JPK_WB(1).pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "37b8c838bd4545c0b63a9ee295921c88",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/(generated)Decyzja Ministra Sportu i Turystyki ws. zatwierdzenia zmian Statutu PZL.pdf",
+      "relative_path": "(generated)Decyzja Ministra Sportu i Turystyki ws. zatwierdzenia zmian Statutu PZL.pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "dd1974ef96bc497582ad404ebda82d1d",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/(generated)Decyzja Naczelnika Urzędu Skarbowego ws. rozłożenia na raty zaległości podatkowej.pdf",
+      "relative_path": "(generated)Decyzja Naczelnika Urzędu Skarbowego ws. rozłożenia na raty zaległości podatkowej.pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "2898bab7bdc24864bc32cac6a5fcd551",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/(generated)Decyzja Państwowego Powiatowego Inspektora Sanitarnego (Sanepid).pdf",
+      "relative_path": "(generated)Decyzja Państwowego Powiatowego Inspektora Sanitarnego (Sanepid).pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "06d251233b38430783bf973fe3556898",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/(generated)Decyzja Prezesa UOKiK - Praktyki naruszające zbiorowe interesy konsumentów.pdf",
+      "relative_path": "(generated)Decyzja Prezesa UOKiK - Praktyki naruszające zbiorowe interesy konsumentów.pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "89842607746b4a0592899906f75f5051",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/(generated)Decyzja Prezesa URE - Koncesja na wytwarzanie energii elektrycznej z OZE.pdf",
+      "relative_path": "(generated)Decyzja Prezesa URE - Koncesja na wytwarzanie energii elektrycznej z OZE.pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "d9307f067ad940009ea865ef097deee7",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/(generated)Decyzja Prezesa UTK - Świadectwo bezpieczeństwa zarządcy infrastruktury kolejowej.pdf",
+      "relative_path": "(generated)Decyzja Prezesa UTK - Świadectwo bezpieczeństwa zarządcy infrastruktury kolejowej.pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "8168445dc5fa468bad04eb45cb7b281b",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/(generated)Decyzja Urzędu Patentowego RP o udzieleniu patentu na wynalazek.pdf",
+      "relative_path": "(generated)Decyzja Urzędu Patentowego RP o udzieleniu patentu na wynalazek.pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "f3a776e12bbb45249209a704f02df14d",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/(generated)Decyzja Wojewody Pomorskiego ws. pozwolenia na budowę sieci elektroenergetycznej.pdf",
+      "relative_path": "(generated)Decyzja Wojewody Pomorskiego ws. pozwolenia na budowę sieci elektroenergetycznej.pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "fd6d512c229a4fd39c6de82a0d3b9e00",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/(generated)Interpretacja indywidualna Dyrektora KIS ws. ulgi badawczo-rozwojowej (B+R) w CIT.pdf",
+      "relative_path": "(generated)Interpretacja indywidualna Dyrektora KIS ws. ulgi badawczo-rozwojowej (B+R) w CIT.pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "3a3590420ef24a39a0c76b4c0eab7048",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/(generated)Materiały szkoleniowe KPA - Nadzwyczajne tryby weryfikacji decyzji.pdf",
+      "relative_path": "(generated)Materiały szkoleniowe KPA - Nadzwyczajne tryby weryfikacji decyzji.pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "2003c4a70fa04d0694353a2aee57f84f",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/(generated)Ogłoszenie o zamówieniu BZP - Dostawa sprzętu IT i serwerów.pdf",
+      "relative_path": "(generated)Ogłoszenie o zamówieniu BZP - Dostawa sprzętu IT i serwerów.pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "14b909baf5f84a57a655d42c36d2e0e5",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/(generated)Ogłoszenie o zamówieniu BZP - Konserwacja systemów HVAC.pdf",
+      "relative_path": "(generated)Ogłoszenie o zamówieniu BZP - Konserwacja systemów HVAC.pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "9f2b55599f6d4991b9c6b8bc3f79797e",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/(generated)Ogłoszenie o zamówieniu TED - Modernizacja oczyszczalni ścieków.pdf",
+      "relative_path": "(generated)Ogłoszenie o zamówieniu TED - Modernizacja oczyszczalni ścieków.pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "6fc4392890064ef395bc1721b239dc25",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/(generated)Ogłoszenie o zamówieniu TED - Usługi ochrony fizycznej i monitoringu.pdf",
+      "relative_path": "(generated)Ogłoszenie o zamówieniu TED - Usługi ochrony fizycznej i monitoringu.pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "7661366246d24500880b3086a12c3de4",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/(generated)Pismo okólne Rektora ws. powołania Komisji ds. Oceny Jakości Kształcenia.pdf",
+      "relative_path": "(generated)Pismo okólne Rektora ws. powołania Komisji ds. Oceny Jakości Kształcenia.pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "ccee26a70eb94dd093c5fa442badaf2e",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/(generated)Postanowienie Komornika Sądowego o umorzeniu postępowania egzekucyjnego.pdf",
+      "relative_path": "(generated)Postanowienie Komornika Sądowego o umorzeniu postępowania egzekucyjnego.pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "1ecca2a21ec8405eba48ce3a2b251db4",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/(generated)Postanowienie Samorządowego Kolegium Odwoławczego ws. zawieszenia postępowania.pdf",
+      "relative_path": "(generated)Postanowienie Samorządowego Kolegium Odwoławczego ws. zawieszenia postępowania.pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "f23d5a3d92b24cab928e1eb6d8b34571",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/(generated)Protokół kontroli kompleksowej RIO - Gospodarka finansowa Gminy Bukowiec.pdf",
+      "relative_path": "(generated)Protokół kontroli kompleksowej RIO - Gospodarka finansowa Gminy Bukowiec.pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "f7a9f7c0c46b4d7db1b1e4f2437f40d3",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/(generated)Protokół zdawczo-odbiorczy przekazania nieruchomości Skarbu Państwa w trwały zarząd (1).pdf",
+      "relative_path": "(generated)Protokół zdawczo-odbiorczy przekazania nieruchomości Skarbu Państwa w trwały zarząd (1).pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "8334d0e5073b4dff8abbec452028f0a1",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/(generated)Protokół zdawczo-odbiorczy przekazania nieruchomości Skarbu Państwa w trwały zarząd.pdf",
+      "relative_path": "(generated)Protokół zdawczo-odbiorczy przekazania nieruchomości Skarbu Państwa w trwały zarząd.pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "b52977a8915a4221b2712f52a07db043",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/(generated)Raport z monitoringu realizacji Gminnego Programu Rewitalizacji Miasta Tarnowa.pdf",
+      "relative_path": "(generated)Raport z monitoringu realizacji Gminnego Programu Rewitalizacji Miasta Tarnowa.pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "0b385e0cadff4d1c96e0d8dea528522e",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/(generated)Uchwała Rady Miasta Sopot - Park Kulturowy Pas Nadmorski (Dz. Urz. Woj. Pomorskiego).pdf",
+      "relative_path": "(generated)Uchwała Rady Miasta Sopot - Park Kulturowy Pas Nadmorski (Dz. Urz. Woj. Pomorskiego).pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "ba7d90826c6a45c0b9593051f0cd4ee4",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/(generated)Uchwała Senatu Uniwersytetu ws. zasad rekrutacji na studia.pdf",
+      "relative_path": "(generated)Uchwała Senatu Uniwersytetu ws. zasad rekrutacji na studia.pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "ab326ea7107140d2af46324e6d3ab285",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/(generated)Umowa o dofinansowanie projektu ze środków UE (FEnIKS - CUPT).pdf",
+      "relative_path": "(generated)Umowa o dofinansowanie projektu ze środków UE (FEnIKS - CUPT).pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "1d7a9238441a46f3893e05c1552ff964",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/(generated)Wezwanie Powiatowego Inspektora Nadzoru Budowlanego do stawienia się na oględziny.pdf",
+      "relative_path": "(generated)Wezwanie Powiatowego Inspektora Nadzoru Budowlanego do stawienia się na oględziny.pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "008d01bcd3c049ad8a7dec39ee19a5d6",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/(generated)Wniosek o wpis w księdze wieczystej (KW-WPIS).pdf",
+      "relative_path": "(generated)Wniosek o wpis w księdze wieczystej (KW-WPIS).pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "70688ba554cc47bd8ee025912372cae2",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/(generated)Zarządzenie Rektora ws. Regulaminu Własnego Funduszu Stypendialnego.pdf",
+      "relative_path": "(generated)Zarządzenie Rektora ws. Regulaminu Własnego Funduszu Stypendialnego.pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "77efe1196fc44613a14e453809e44570",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/(generated)Zaświadczenie ZUS o niezaleganiu w opłacaniu składek.pdf",
+      "relative_path": "(generated)Zaświadczenie ZUS o niezaleganiu w opłacaniu składek.pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "ae89fb4f7b7b4b8dbbcf688d8557a950",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/(generated)Zaświadczenie o nadaniu numeru identyfikacyjnego REGON.pdf",
+      "relative_path": "(generated)Zaświadczenie o nadaniu numeru identyfikacyjnego REGON.pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "dc8a167aa6b94011a978b8a2d51b02e1",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/(generated)Zezwolenie Zarządu Dróg Powiatowych na zajęcie pasa drogowego.pdf",
+      "relative_path": "(generated)Zezwolenie Zarządu Dróg Powiatowych na zajęcie pasa drogowego.pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "38ef856d47214e47a73d9841c0015fd3",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/1648041143_1647951357decyzja-ministrasportu-pzn.pdf",
+      "relative_path": "1648041143_1647951357decyzja-ministrasportu-pzn.pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "9f27c490f1074c799b19834b880127b1",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/16_komisja_ds._regulacji_wynagrodzeń.pdf",
+      "relative_path": "16_komisja_ds._regulacji_wynagrodzeń.pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "49cdcbe9b615456dbf5502c50a8a7a9c",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/2020_03_21-22prowadzenie_postepowania_odwolawczego.pdf",
+      "relative_path": "2020_03_21-22prowadzenie_postepowania_odwolawczego.pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "21760ea805394417b7149cfea06497a5",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/2025-OJS107-00364525-pl-ts-1.pdf",
+      "relative_path": "2025-OJS107-00364525-pl-ts-1.pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "3e23ed8131444ce7aa55682f5f0d7471",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/2025-OJS107-00364525-pl-ts.pdf",
+      "relative_path": "2025-OJS107-00364525-pl-ts.pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "94e67050a42444e082e115eebf68139c",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/2025_BZP 00143067_01.pdf",
+      "relative_path": "2025_BZP 00143067_01.pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "0795aa62c01c47d0986c39711bdd12a4",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/2025_S 112-383751.pdf",
+      "relative_path": "2025_S 112-383751.pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "3cbc2a1971784842b53902854601af26",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/2025_S 188-641009.pdf",
+      "relative_path": "2025_S 188-641009.pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "a1a1da4f39e24b9c91c5d69d95fe5b10",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/Broszura_JPK_FA(2).pdf",
+      "relative_path": "Broszura_JPK_FA(2).pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "84634c53046645238a769d4993b3edf1",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/Decyzja-Ministra-Sportu-i-Turystyki1.pdf",
+      "relative_path": "Decyzja-Ministra-Sportu-i-Turystyki1.pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "03ff2f36498441c3be5b0d1f67000fc8",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/KIO_KIO 2617-21.pdf",
+      "relative_path": "KIO_KIO 2617-21.pdf",
+      "label": "negatywne"
+    },
+    {
+      "id": "b2b034bcf08146bcb8ea4a5b3f1e45cc",
+      "source_pdf": "/Users/tynka/Documents/pdf-converter/negatywne/Minister-Sprawiedliwosci-pismo-RDSSP-z-11.03.2024-r..pdf",
+      "relative_path": "Minister-Sprawiedliwosci-pismo-RDSSP-z-11.03.2024-r..pdf",
+      "label": "negatywne"
+    }
+  ]
+}
