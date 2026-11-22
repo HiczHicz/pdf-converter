@@ -126,6 +126,7 @@ class DataExplorer:
         return text
 
     def load_file_json(self, path: str | Path) -> tuple[list, list]:
+            import json
             p = Path(path)
             with p.open("r", encoding="utf-8") as f:
                 raw_data = json.load(f)
