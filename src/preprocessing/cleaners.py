@@ -43,6 +43,11 @@ class WhitespaceCleaner:
 
 class OcrArtifactFixer:
     _SP_ZOO = re.compile(r"\bsp\.\s*z\s*[o0]\.\s*[o0]\.", re.IGNORECASE)
+    _SPACED_HEADER = re.compile(r"(?<!\w)(?:[A-ZĄĆĘŁŃÓŚŹŻ]\s){3,}[A-ZĄĆĘŁŃÓŚŹŻ](?!\w)")
+    _DOTTED_LINE = re.compile(r"[._]{3,}")
 
     def process(self, text: str) -> str:
-        return self._SP_ZOO.sub("sp. z o.o.", text)
+        text = self._SP_ZOO.sub("sp. z o.o.", text)
+        text = self._SPACED_HEADER.sub(lambda m: m.group(0).replace(" ", ""), text)
+        text = self._DOTTED_LINE.sub(" ", text)
+        return text

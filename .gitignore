@@ -8,3 +8,7 @@ src/__pycache__
 *pycache*
 *__pycache__*
 workfile.ipynb
+dataset/
+src/preprocessing/__pycache__
+src/models/__pycache__
+negatywne
