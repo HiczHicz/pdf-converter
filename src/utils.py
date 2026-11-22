@@ -1,5 +1,5 @@
 from pathlib import Path
-import fitz          # pip install pymupdf
+import pymupdf as fitz          # pip install pymupdf
 import pdfplumber    # pip install pdfplumber
 from rapidocr_onnxruntime import RapidOCR  # pip install rapidocr-onnxruntime #pip install RapidOCR
 import json
@@ -7,14 +7,14 @@ import time
 import uuid
 import math
 import random
-from .preprocessing.patterns import ENTITY_PATTERNS
-from .preprocessing.base import TextPipeline
-from .preprocessing.factory import PipelineFactory
+from preprocessing.patterns import ENTITY_PATTERNS
+from preprocessing.base import TextPipeline
+from preprocessing.factory import PipelineFactory
 import random
 class DataExplorer:
-    def __init__(self, data_path: str | Path = "./hacknation-2026-main/dane") -> None:
-        self.data_path = self._validate_dir(data_path)
-        self._ocr_engine = RapidOCR()  # lekki silnik OCR ładowany raz przy starcie
+    def __init__(self, data_path: str | Path | None = None) -> None:
+        self.data_path = self._validate_dir(data_path) if data_path is not None else None
+        self._ocr_engine = RapidOCR()
 
     @staticmethod
     def _validate_dir(path: str | Path) -> Path:
@@ -117,19 +117,24 @@ class DataExplorer:
         return "\n".join(text_pages)
 
     def read_pdf(self, pdf_path: str | Path, min_text_length: int = 50) -> str:
-        """
-        Uniwersalny odczyt PDF:
-        1. Próbuje wczytać tekst przez pdfplumber.
-        2. Jeśli wyciągnięty tekst (bez spacji) ma mniej niż `min_text_length` znaków
-           (czyli PDF jest skanem), automatycznie uruchamia OCR.
-        """
-        text = self.read_pdf_plumber(pdf_path)
-        clean_len = len("".join(text.split()))
+            text = ""
+            try:
+                text = self.read_pdf_plumber(pdf_path)
+            except Exception:
+                try:
+                    text = self.read_pdf_pymupdf(pdf_path)
+                except Exception:
+                    text = ""
 
-        if clean_len < min_text_length:
-            return self.read_pdf_ocr(pdf_path)
+            if len("".join(text.split())) < min_text_length:
+                try:
+                    ocr_text = self.read_pdf_ocr(pdf_path)
+                    if len("".join(ocr_text.split())) > len("".join(text.split())):
+                        return ocr_text
+                except Exception:
+                    pass
 
-        return text
+            return text
 
     def load_file_json(self, path: str | Path) -> tuple[list, list]:
             import json

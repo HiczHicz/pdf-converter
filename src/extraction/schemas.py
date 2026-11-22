@@ -47,7 +47,7 @@ class PelnomocnictwoSchema(BaseModel):
 class OdwolanieKIOData(BaseModel):
     data: str | None = None
     czynnosc_dzien: str | None = None
-    czynnosc_powod_id: int | str | None = None
+    czynnosc_powod_id: int | None = None
     czynnosc_opis: str | None = None
     miejscowosc: str | None = None
 
@@ -65,7 +65,7 @@ class OdwolujacyItem(BaseModel):
     nazwa: str | None = None
     nip: str | None = None
     regon: str | None = None
-    przez_pelnomocnika: bool | None = Field(default=None, alias="przez-pelnomocnika")
+    przez_pelnomocnika: int | None = Field(default=None, alias="przez-pelnomocnika")
     pelnomocnik: OdwolujacyPelnomocnik = Field(default_factory=OdwolujacyPelnomocnik)
 
 
@@ -74,7 +74,7 @@ class ZamawiajacyItem(BaseModel):
     nazwa: str | None = None
     nip: str | None = None
     regon: str | None = None
-    prowadzacy_postepowanie: int | str | None = None
+    prowadzacy_postepowanie: int | None = None
 
 
 class ZamowieniePubliczneData(BaseModel):
