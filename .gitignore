@@ -18,3 +18,7 @@ worfkile.ipynb
 dataset_neg/dataset_all.jsonl
 worfkile.ipynb
 worfkile.ipynb
+a.test_data
+output/*
+__pycache__/
+*.py[cod]
