@@ -5,11 +5,12 @@ from rapidocr_onnxruntime import RapidOCR  # pip install rapidocr-onnxruntime #p
 import json
 import time
 import uuid
-from pathlib import Path
-from preprocessing.patterns import ENTITY_PATTERNS
-from preprocessing.base import TextPipeline
-from preprocessing.factory import PipelineFactory
-
+import math
+import random
+from .preprocessing.patterns import ENTITY_PATTERNS
+from .preprocessing.base import TextPipeline
+from .preprocessing.factory import PipelineFactory
+import random
 class DataExplorer:
     def __init__(self, data_path: str | Path = "./hacknation-2026-main/dane") -> None:
         self.data_path = self._validate_dir(data_path)
@@ -157,19 +158,75 @@ class DataExplorer:
             y.extend(y_)
         return X, y
 
-    def load_file_jsonl(self, path: str | Path) -> tuple[list, list]:
+    def load_file_jsonl(
+        self,
+        path: str | Path,
+        validate_split: float = 0.2,
+        shuffle: bool = True,
+        random_state: int = 42,
+    ) -> tuple[dict[str, list], dict[str, list] | None]:
+        if not (0.0 <= validate_split < 1.0):
+            raise ValueError("`validate_split` musi być w przedziale [0.0, 1.0).")
+
         p = Path(path)
-        X = []
-        y = []
+        X: list = []
+        y: list = []
+        doc_ids: list[str] = []
+
         with p.open("r", encoding="utf-8") as f:
-            for line in f:
+            for idx, line in enumerate(f):
                 line = line.strip()
                 if not line:
                     continue
                 item = json.loads(line)
                 X.append(item["text"])
                 y.append(item["label"])
-        return X, y
+                doc_id = item.get("doc_id") or item.get("id") or f"doc_{idx}"
+                doc_ids.append(str(doc_id))
+
+        train_set = {"X": X, "y": y, "doc_ids": doc_ids}
+        unique_docs = list(dict.fromkeys(doc_ids))
+
+        if validate_split == 0.0 or not unique_docs:
+            return train_set, None
+
+        doc_order = unique_docs.copy()
+        if shuffle:
+            rng = random.Random(random_state)
+            rng.shuffle(doc_order)
+
+        n_val_docs = math.ceil(len(doc_order) * validate_split)
+        if len(doc_order) > 1 and n_val_docs >= len(doc_order):
+            n_val_docs = len(doc_order) - 1
+
+        val_doc_set = set(doc_order[:n_val_docs])
+
+        train_X, train_y, train_docs = [], [], []
+        val_X, val_y, val_docs = [], [], []
+
+        for x_item, y_item, d_id in zip(X, y, doc_ids):
+            if d_id in val_doc_set:
+                val_X.append(x_item)
+                val_y.append(y_item)
+                val_docs.append(d_id)
+            else:
+                train_X.append(x_item)
+                train_y.append(y_item)
+                train_docs.append(d_id)
+
+        train_doc_set = set(train_docs)
+        actual_val_doc_set = set(val_docs)
+
+        overlap = train_doc_set & actual_val_doc_set
+        assert not overlap, f"Wyciek dokumentów między train i validate: {overlap}"
+        assert len(actual_val_doc_set) == n_val_docs, (
+            f"Oczekiwano {n_val_docs} dokumentów w validate, jest {len(actual_val_doc_set)}."
+        )
+        assert len(train_X) + len(val_X) == len(X), "Utracono lub zduplikowano rekordy przy podziale."
+
+        train_split = {"X": train_X, "y": train_y, "doc_ids": train_docs}
+        val_split = {"X": val_X, "y": val_y, "doc_ids": val_docs}
+        return train_split, val_split
 
 def _resolve_label(pdf_path: Path, source_dir: Path) -> str | None:
     rel_str = str(pdf_path.relative_to(source_dir)).lower()
