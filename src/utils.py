@@ -126,6 +126,32 @@ class DataExplorer:
 
         return text
 
+    def load_file_json(self, path: str | Path) -> tuple[list, list]:
+            p = Path(path)
+            with p.open("r", encoding="utf-8") as f:
+                raw_data = json.load(f)
+            X = []
+            y = []
+            if isinstance(raw_data, list):
+                for item in raw_data:
+                    print(item)
+                    X.append(item["text"])
+                    y.append(item["label"])
+            else:
+                X.append(raw_data["text"])
+                y.append(raw_data["label"])
+            return X, y
+
+    def load_folder_json(self, path: str | Path | None = None) -> tuple[list, list]:
+        folder = Path(path) if path is not None else self.data_path
+        X = []
+        y = []
+        for file in sorted(folder.glob("*.json")):
+            x, y_ = self.load_file_json(file)
+            X.extend(x)
+            y.extend(y_)
+        return X, y
+
 
     import json
 import uuid
